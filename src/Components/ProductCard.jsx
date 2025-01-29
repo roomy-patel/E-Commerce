@@ -1,14 +1,38 @@
 import React from 'react';
-import './ProductCard.css';
+import { Card, CardContent, CardMedia, Typography } from '@mui/material';
+
 
 const ProductCard = ({product}) => {
   return (
-    <div className="product-card">
-        <img src={product.image} alt={product.name} className="product-image"/>
-        <h2>{product.name}</h2>
-        <p>{product.description}</p>
-        <h3>{product.price}</h3>
-    </div>
+    <Card sx={{
+      border: '1px solid #ccc',
+      borderRadius: '8px',
+      padding: '16px',
+      textAlign: 'center',
+      width: '200px',
+      margin: '16px auto'
+    }}>
+      <CardMedia
+        component="img"
+        image={product.image}
+        alt={product.name}
+        sx={{
+          width: '100%',
+          height: 'auto'
+        }}
+      />
+      <CardContent>
+        <Typography variant="h5" component="div">
+          {product.name}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {product.description}
+        </Typography>
+        <Typography variant="h6" color="text.primary">
+          {product.price}
+        </Typography>
+      </CardContent>
+    </Card>
   );
 }
 
